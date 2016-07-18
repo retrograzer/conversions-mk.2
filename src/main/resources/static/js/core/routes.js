@@ -30,6 +30,12 @@ angular.
         	controller: 'UserDetailController',
         	controllerAs: 'userDetailController'
         }).
+        when('/login', {
+        	
+        	templateUrl: baseRoute + 'loginParse/loginTemplate.html',
+        	controller: 'loginController',
+        	controllerAs: 'loginController'
+        }).
         otherwise('/home');
     }
   ]);
