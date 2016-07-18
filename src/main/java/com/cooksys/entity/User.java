@@ -68,7 +68,6 @@ public class User {
 	}
 
 	public static User format(String string) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
