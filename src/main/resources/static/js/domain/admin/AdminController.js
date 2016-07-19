@@ -3,14 +3,16 @@ angular
   .controller('AdminController',['AdminService','$location','$routeParams',	function(AdminService, $location, $routeParams) {
 	  
 	  var ctrl = this;
-	  var tester = 'yoyoyo';
 	  ctrl.path = $location.path();
 	  
 	  console.log(ctrl.path)
 	  
+	  AdminService.getAllUrls()
+		 .then(function(result){
+			 
+		 })
+	  
 	  ctrl.createURL = function() {
-		  var response = {
-					"urlLabel": ctrl.urlLabel
-			}
-	  }
+		 console.log('Creating new URL')
+	  } 
  }])

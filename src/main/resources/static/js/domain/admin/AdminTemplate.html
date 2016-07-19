@@ -7,9 +7,16 @@
 			<p style="color: white">URL: {{adminController.path}}</p>
 		</div>
 		<div>
-			<form ng-submit="AdminController.createURL()">
+			<form ng-submit="adminController.createURL()">
 				<input name="label" ng-model="AdminController.urlLabel" id="inIt"></input>
+				<button type="submit" id="inIt">Create URL</button>
 			</form>
+			<table>
+				<li ng-repeat="x in adminController.getAllUrls()">
+				<!-- to do -->
+					<h3>Url Thingies</h3>
+				</li>
+			</table>
 		</div>
 	</div>
 </div>
