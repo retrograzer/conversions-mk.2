@@ -22,9 +22,20 @@ public class User {
 	
 	@Column(name = "num")
 	private long num;
+	
+	@Column(name = "role")
+	private long role;
 
 	public long getId() {
 		return id;
+	}
+
+	public long getRole() {
+		return role;
+	}
+
+	public void setRole(long role) {
+		this.role = role;
 	}
 
 	public void setId(long id) {
