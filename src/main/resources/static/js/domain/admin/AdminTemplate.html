@@ -4,7 +4,12 @@
 			<h1 id="inIt">Admin</h1>
 		</div>
 		<div>
-			<p>URL: {{x}}</p>
+			<p style="color: white">URL: {{adminController.path}}</p>
+		</div>
+		<div>
+			<form ng-submit="AdminController.createURL()">
+				<input name="label" ng-model="AdminController.urlLabel" id="inIt"></input>
+			</form>
 		</div>
 	</div>
 </div>
