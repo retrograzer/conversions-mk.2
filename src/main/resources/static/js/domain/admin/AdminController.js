@@ -5,6 +5,7 @@ angular
 	  var ctrl = this;
 	  ctrl.urlNum = 1;
 	  ctrl.path = $location.path();
+	  ctrl.shownLabels;
 	  
 	  console.log(ctrl.path);
 	  
@@ -32,10 +33,12 @@ angular
 		 })
 	  } 
 	  
-	  ctrl.timeSpan = 'week';
+	  
+	  ctrl.timeSpan = 'all';
 	  
 	  ctrl.setSpan = function(newValue) {
 		  ctrl.timeSpan = newValue;
+		  console.log(ctrl.timeSpan)
 	  }
 	  
 	  this.tab = 1;
@@ -47,4 +50,5 @@ angular
 	    this.isSet = function(tabName){
 	      return this.tab === tabName;
 	    };
+	    
  }])

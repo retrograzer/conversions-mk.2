@@ -9,13 +9,13 @@
 		<div>
 		<div class="dropdown">
 				<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
-					Seeing hits from: {{adminController.timeSpan}} <span class="caret"></span>
+					Time Span: {{adminController.timeSpan}} <span class="caret"></span>
 				</button>
 				<ul class="dropdown-menu">
-					<li><a ng-href ng-click="adminController.setSpan(week)">Week</a></li>
-					<li><a ng-href ng-click="adminController.setSpan(month)">Month</a></li>
-					<li><a ng-href ng-click="adminController.setSpan(year)">Year</a></li>
-					<li><a ng-href ng-click="adminController.setSpan(all)">All</a></li>
+					<li><a ng-href ng-click="adminController.setSpan('week')">Week</a></li>
+					<li><a ng-href ng-click="adminController.setSpan('month')">Month</a></li>
+					<li><a ng-href ng-click="adminController.setSpan('year')">Year</a></li>
+					<li><a ng-href ng-click="adminController.setSpan('all')">All</a></li>
 				</ul>
 			</div>
 			<form ng-submit="adminController.createURL()">
