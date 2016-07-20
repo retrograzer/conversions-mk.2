@@ -12,6 +12,14 @@
 					<br>
 					<button type="submit" id="inIt">Login</button>
 				</form>
+				<form ng-submit="loginController.register()">
+					<h3>New Username</h3>
+						<input name="username" ng-model="loginController.Rusername" id="inIt"></input>
+					<h3>New Password</h3>
+						<input name="password" ng-model="loginController.Rpassword" id="inIt"></input>
+					<br>
+					<button type="submit" id="inIt">Register</button>
+				</form>
 			</div>
 	</div>
 </div>

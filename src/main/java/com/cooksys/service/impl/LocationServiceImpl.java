@@ -94,4 +94,20 @@ public class LocationServiceImpl implements LocationService {
 		}
 		return null;
 	}
+
+	@Override
+	public List<Location> getInLastWeek() {
+		return locRepo.getHitsWeek();
+	}
+
+	@Override
+	public List<Location> getInLastMonth() {
+		return locRepo.getHitsMonth();
+	}
+
+	@Override
+	public List<Location> getInLastYear() {
+		return locRepo.getHitsYear();
+	}
+	
 }

@@ -20,4 +20,10 @@ public interface LocationService {
 
 	Location createLocation(LocationReq requestLocation);
 
+	List<Location> getInLastWeek();
+
+	List<Location> getInLastMonth();
+
+	List<Location> getInLastYear();
+
 }

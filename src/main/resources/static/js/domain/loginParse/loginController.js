@@ -20,4 +20,17 @@ angular
 		  }
 	  })
 	}
+	
+	this.register = function() {
+		var register = {
+				"password": ctrl.Rpassword,
+				"role": ctrl.role,
+				"username": ctrl.Rusername,
+		}
+		loginService.createUser(register)
+		.then(function(result) {
+			ctrl.user = result.data
+			console.dir(ctrl.user)
+		})
+	}
 }])

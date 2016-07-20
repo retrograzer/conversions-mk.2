@@ -26,7 +26,7 @@ public class LocationController {
 		return ser.addToLocation(requestLocation, (long) 1);
 	}
 
-	@RequestMapping(value = "/getLoc", method = RequestMethod.GET)
+	@RequestMapping(value = "all", method = RequestMethod.GET)
 	public List<Location> getAllLocations() {
 		return ser.getAllLocations();
 	}
@@ -45,4 +45,20 @@ public class LocationController {
 	public String getLocationConversion(@PathVariable Long id) {
 		return ser.getConversionRateByLocation(id);
 	}
+	
+	@RequestMapping("week")
+	public List<Location> getInLastWeek(){
+		return ser.getInLastWeek();
+	}
+	
+	@RequestMapping("month")
+	public List<Location> getInLastMonth(){
+		return ser.getInLastMonth();
+	}
+	
+	@RequestMapping("year")
+	public List<Location> getInLastYear(){
+		return ser.getInLastYear();
+	}
+	
 }
