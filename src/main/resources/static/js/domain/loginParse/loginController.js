@@ -11,7 +11,6 @@ angular
 	  }
 	  loginService.getLoginDetails(login)
 	  .then(function(result) {
-		loginService.setResult()
 		ctrl.user = result.data
 		console.dir(ctrl.user)
 		  if (ctrl.user.role === 1) {

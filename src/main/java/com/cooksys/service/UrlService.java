@@ -7,7 +7,7 @@ import com.cooksys.model.UrlReq;
 
 public interface UrlService {
 
-	List<Url> getAllUsers();
+	List<Url> getAllUrls();
 
 	Url createUrl(UrlReq requestUrl);
 

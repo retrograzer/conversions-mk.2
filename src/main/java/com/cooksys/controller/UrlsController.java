@@ -10,27 +10,25 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.cooksys.entity.Url;
 import com.cooksys.model.UrlReq;
-import com.cooksys.service.LocationService;
 import com.cooksys.service.UrlService;
-import com.cooksys.service.UserService;
 
 @RestController
 @RequestMapping("/urls")
 public class UrlsController {
-//	@Autowired
-//	private UserRepository repo;
-//	
+
 	@Autowired
 	private UrlService urlService;
 	
-	@RequestMapping(value="create",method=RequestMethod.POST)
-	public Url createUrl(@RequestBody UrlReq requestUrl) {
-		return urlService.createUrl(requestUrl);
+	@RequestMapping("get")
+	public List<Url> getAllUrls() {
+		System.out.println("Getting urls");
+		return urlService.getAllUrls();
 	}
 	
-	@RequestMapping(value="/get",method=RequestMethod.GET)
-	public List<Url> getAllUrls() {
-		return urlService.getAllUsers();
+	@RequestMapping(value="create",method=RequestMethod.POST)
+	public Url createUrl(@RequestBody UrlReq requestUrl) {
+		System.out.println("Creating url");
+		return urlService.createUrl(requestUrl);
 	}
 
 }

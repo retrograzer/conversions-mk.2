@@ -23,10 +23,10 @@ public class Url {
 	@Column(name = "description")
 	private String description;
 	
-	@Column(name = "urlHits")
-	private long urlHits;
+	@Column(name = "url_hits")
+	private int urlHits;
 
-	public Url(long id, String url, String label, String description, long urlHits) {
+	public Url(long id, String url, String label, String description, int urlHits) {
 		super();
 		this.id = id;
 		this.url = url;
@@ -75,7 +75,7 @@ public class Url {
 		return urlHits;
 	}
 
-	public void setUrlHits(long urlHits) {
+	public void setUrlHits(Integer urlHits) {
 		this.urlHits = urlHits;
 	}
 	

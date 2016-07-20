@@ -4,19 +4,53 @@
 			<h1 id="inIt">Admin</h1>
 		</div>
 		<div>
-			<p style="color: white">URL: {{adminController.path}}</p>
+			<p>URL: {{adminController.path}}</p>
 		</div>
 		<div>
+		<div class="dropdown">
+				<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+					Seeing hits from: {{adminController.timeSpan}} <span class="caret"></span>
+				</button>
+				<ul class="dropdown-menu">
+					<li><a ng-href ng-click="adminController.setSpan(week)">Week</a></li>
+					<li><a ng-href ng-click="adminController.setSpan(month)">Month</a></li>
+					<li><a ng-href ng-click="adminController.setSpan(year)">Year</a></li>
+					<li><a ng-href ng-click="adminController.setSpan(all)">All</a></li>
+				</ul>
+			</div>
 			<form ng-submit="adminController.createURL()">
-				<input name="label" ng-model="AdminController.urlLabel" id="inIt"></input>
+				<input name="label" ng-model="adminController.urlLabel" id="inIt"></input>
+				<!-- <input name="description" ng-model="adminController.urlDescription" id="inIt"></input> -->
 				<button type="submit" id="inIt">Create URL</button>
 			</form>
-			<table>
-				<li ng-repeat="x in adminController.getAllUrls()">
-				<!-- to do -->
-					<h3>Url Thingies</h3>
-				</li>
-			</table>
+			<section class="tab" ng-init="adminController.getAllUrls()">
+				<ul class="nav nav-pills">
+					<li ng-class="{active: adminController.isSet(1)}"><a ng-href
+						ng-click="adminController.setTab(1)">Urls</a></li>
+					<li ng-class="{active: adminController.isSet(2)}">
+						<a ng-href ng-click="adminController.setTab(2)">Labels</a></li>
+					<li ng-class="{active: adminController.isSet(3)}"><a ng-href
+						ng-click="adminController.setTab(3)">Descriptions</a></li>
+				</ul>
+				<div ng-show="adminController.isSet(1)">
+					<h4>Urls</h4>
+					<blockquote>
+						<p ng-repeat="x in adminController.allUrls" style="color: white">{{x.url}}</p>
+					</blockquote>
+				</div>
+				<div ng-show="adminController.isSet(2)">
+					<h4>Labels</h4>
+					<blockquote>
+						<p ng-repeat="x in adminController.allUrls" style="color: white">{{x.label}}</p>
+					</blockquote>
+				</div>
+				<div ng-show="adminController.isSet(3)">
+					<h4>Descriptions</h4>
+					<blockquote>
+						<p ng-repeat="x in adminController.allUrls" style="color: white">{{x.description}}</p>
+					</blockquote>
+				</div>
+			</section>
 		</div>
 	</div>
 </div>

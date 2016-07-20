@@ -3,9 +3,14 @@ angular
 	.service('AdminService', ['$http', function($http) {
 		var ctrl = this;
 		
-		var url = "/urls"
+		var url = "urls/"
 		
 		this.getAllUrls = function() {
-			return $http.get(url + "login", login)
+			console.log('getting urls')
+			return $http.get(url + "get")
+		}
+		
+		this.createURL = function(requester) {
+			return $http.post(url + "create", requester)
 		}
 	}])
