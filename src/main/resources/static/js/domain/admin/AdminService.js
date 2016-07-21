@@ -14,4 +14,9 @@ angular
 			return $http.post(url + "create", requester)
 		}
 		
+		this.getTimeSpans = function(timeSpan){
+			console.log('GetTimeSpan')
+			return $http.get("location/" + timeSpan)
+		}
+		
 	}])

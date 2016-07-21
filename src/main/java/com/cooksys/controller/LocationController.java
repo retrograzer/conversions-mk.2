@@ -1,5 +1,8 @@
 package com.cooksys.controller;
 
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,9 +12,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.cooksys.entity.Hits;
 import com.cooksys.entity.Location;
 import com.cooksys.entity.User;
 import com.cooksys.model.LocationReq;
+import com.cooksys.service.HitsService;
 import com.cooksys.service.LocationService;
 
 @RestController
@@ -20,13 +25,15 @@ public class LocationController {
 
 	@Autowired
 	private LocationService ser;
+	@Autowired
+	private HitsService hitsSer;
 
 	@RequestMapping(value = "/LocCreate", method = RequestMethod.POST)
 	public Location createLocation(@RequestBody LocationReq requestLocation) {
 		return ser.addToLocation(requestLocation, (long) 1);
 	}
 
-	@RequestMapping(value = "all", method = RequestMethod.GET)
+	@RequestMapping(value = "/get", method = RequestMethod.GET)
 	public List<Location> getAllLocations() {
 		return ser.getAllLocations();
 	}
@@ -46,9 +53,27 @@ public class LocationController {
 		return ser.getConversionRateByLocation(id);
 	}
 	
+	@RequestMapping(value = "all", method = RequestMethod.GET)
+	public List<Hits> getAllHits() {
+		return hitsSer.getAllHits();
+	}
+	
+	@SuppressWarnings("deprecation")
 	@RequestMapping("week")
-	public List<Location> getInLastWeek(){
-		return ser.getInLastWeek();
+	public List<Hits> getInLastWeek(){
+		List<Hits> allHits = hitsSer.getAllHits();
+		Calendar cal = Calendar.getInstance();
+		int dayOfMonth = cal.get(Calendar.DAY_OF_MONTH);
+		int monthOfYear = cal.get(Calendar.MONTH);
+		int yearNum = cal.get(Calendar.YEAR);
+		Date targetDate = new Date(yearNum, monthOfYear, dayOfMonth - 7);
+		List<Hits> weekHits = new ArrayList<Hits>();
+		for (Hits h : allHits) {
+			if (h.getTimestamp().after(targetDate)){
+				weekHits.add(h);
+			}
+		}
+		return weekHits;
 	}
 	
 	@RequestMapping("month")

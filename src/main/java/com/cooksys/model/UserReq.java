@@ -3,6 +3,7 @@ package com.cooksys.model;
 public class UserReq {
 	 String username;
 	 String password;
+	 long role;
 	 long num;
 	public String getUsername() {
 		return username;
@@ -31,5 +32,12 @@ public class UserReq {
 	public UserReq() {
 		super();
 	}
+	public long getRole() {
+		return role;
+	}
+	public void setRole(long role) {
+		this.role = role;
+	}
+	
 	 
 }

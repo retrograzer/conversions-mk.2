@@ -7,7 +7,9 @@ angular
 	this.login = function() {
 	  var login = {
 	  "username" : ctrl.username,
-	  "password" : ctrl.password
+	  "password" : ctrl.password,
+	  "num": ctrl.num,
+	  "role": ctrl.role
 	  }
 	  loginService.getLoginDetails(login)
 	  .then(function(result) {

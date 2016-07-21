@@ -21,10 +21,10 @@ public class User {
 	private String password;
 	
 	@Column(name = "num")
-	private long num;
+	private long num = 1;
 	
 	@Column(name = "role")
-	private long role;
+	private long role = 1;
 
 	public long getId() {
 		return id;

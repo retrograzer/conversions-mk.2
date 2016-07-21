@@ -9,14 +9,37 @@ angular
 	  
 	  console.log(ctrl.path);
 	  
+	  ctrl.timeSpan = 'all';
+	  
+	  ctrl.setSpan = function(newValue) {
+		  ctrl.timeSpan = newValue;
+		  console.log(ctrl.timeSpan)
+	  }
+	  
+	  this.getHitsSpan = function() {
+		  AdminService.getTimeSpans(ctrl.timeSpan)
+		  .then(function(result){
+			  ctrl.allHitsThing = result.data
+			  ctrl.hitNum = ctrl.allHitsThing.length
+			  console.dir(ctrl.allHitsThing)
+			  console.log(ctrl.hitNum)
+		  })
+	  }
+	  
 	  this.getAllUrls = function(){
 		  AdminService.getAllUrls()
 		  .then(function(result){
 			  ctrl.allUrls = result.data;
 			  console.dir(ctrl.allUrls)
 			  ctrl.urlNum = ctrl.allUrls[ctrl.allUrls.length - 1].id + 1
+			  for (var i = 0; i < ctrl.allUrls.length; i++) {
+				  if (ctrl.allUrls[i].label.slice(-1) === ctrl.allHitsThing[i].hitRegion) {
+					  console.log('thing?')
+				  } 
+			  }
 		  })
 	  }
+	  
 	  
 	  ctrl.createURL = function() {
 		 console.log('Creating new URL');
@@ -33,14 +56,6 @@ angular
 		 })
 	  } 
 	  
-	  
-	  ctrl.timeSpan = 'all';
-	  
-	  ctrl.setSpan = function(newValue) {
-		  ctrl.timeSpan = newValue;
-		  console.log(ctrl.timeSpan)
-	  }
-	  
 	  this.tab = 1;
 
 	    this.setTab = function(newValue){
@@ -50,5 +65,7 @@ angular
 	    this.isSet = function(tabName){
 	      return this.tab === tabName;
 	    };
+	    
+	    
 	    
  }])
