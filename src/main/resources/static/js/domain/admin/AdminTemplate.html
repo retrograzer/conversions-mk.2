@@ -41,13 +41,13 @@
 				<div ng-show="adminController.isSet(2)">
 					<h4>Labels</h4>
 					<blockquote>
-						<p ng-repeat="x in adminController.allUrls" style="color: white">{{x.label}}</p>
+						<p ng-repeat="x in adminController.allUrls" style="color: white">{{x.label}} Hits: DO A THING</p>
 					</blockquote>
 				</div>
 				<div ng-show="adminController.isSet(3)">
 					<h4>Descriptions</h4>
 					<blockquote>
-						<p ng-repeat="x in adminController.allUrls" style="color: white">{{x.description}}</p>
+						<p ng-repeat="x in adminController.allUrls" style="color: white">{{x.label}}: {{x.description}}</p>
 					</blockquote>
 				</div>
 			</section>
