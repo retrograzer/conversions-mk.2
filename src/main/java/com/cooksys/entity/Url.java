@@ -4,6 +4,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -23,10 +25,11 @@ public class Url {
 	@Column(name = "description")
 	private String description;
 	
-	@Column(name = "url_hits")
-	private int urlHits;
+	@ManyToOne
+	@JoinColumn(name = "hit_region")
+	private Hits urlHits;
 
-	public Url(long id, String url, String label, String description, int urlHits) {
+	public Url(long id, String url, String label, String description, Hits urlHits) {
 		super();
 		this.id = id;
 		this.url = url;
@@ -71,11 +74,11 @@ public class Url {
 		this.description = description;
 	}
 
-	public long getUrlHits() {
+	public Hits getUrlHits() {
 		return urlHits;
 	}
 
-	public void setUrlHits(Integer urlHits) {
+	public void setUrlHits(Hits urlHits) {
 		this.urlHits = urlHits;
 	}
 	

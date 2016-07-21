@@ -29,14 +29,31 @@ angular
 	  this.getAllUrls = function(){
 		  AdminService.getAllUrls()
 		  .then(function(result){
+			  ctrl.theHitters = [{
+				  "label": "",
+				  "hits": 0
+			  }]
 			  ctrl.allUrls = result.data;
+			  console.log(ctrl.allUrls.urlHits)
 			  console.dir(ctrl.allUrls)
+			  var hits = 0
 			  ctrl.urlNum = ctrl.allUrls[ctrl.allUrls.length - 1].id + 1
 			  for (var i = 0; i < ctrl.allUrls.length; i++) {
-				  if (ctrl.allUrls[i].label.slice(-1) === ctrl.allHitsThing[i].hitRegion) {
-					  console.log('thing?')
-				  } 
+				  console.log('i: ' + ctrl.allUrls[i].url.slice(-1))
+				  hits = 0
+				  for (var h = 0; h < ctrl.allHitsThing.length; h++) {
+					  console.log('h: ' + ctrl.allHitsThing[h].hitRegion)
+					  if (ctrl.allUrls[i].url.slice(-1) == ctrl.allHitsThing[h].hitRegion){
+						  console.log('th9i9ng');
+						  hits++;
+					  }
+				  }
+				  ctrl.theHitters += {
+						  "label": ctrl.allUrls[i].url,
+						  "hits": hits
+				  }
 			  }
+			  
 		  })
 	  }
 	  
