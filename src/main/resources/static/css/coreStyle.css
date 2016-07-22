@@ -10,3 +10,7 @@ body {
 #table {
 	color: black;
 }
+
+#subtitle {
+	font-weight: bold;
+}

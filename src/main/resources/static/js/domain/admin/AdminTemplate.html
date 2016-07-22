@@ -43,7 +43,7 @@
 				<div ng-show="adminController.isSet(2)">
 					<h4>Labels</h4>
 					<blockquote>
-						<p ng-repeat="x in adminController.allUrls" style="color: white">{{x.label}} Hits: {{adminController.myHitNum}}</p>
+						<p ng-repeat="x in adminController.allUrls" style="color: white">{{x.label}}</p>
 					</blockquote>
 				</div>
 				<div ng-show="adminController.isSet(3)">
@@ -55,7 +55,7 @@
 				<div ng-show="adminController.isSet(4)">
 					<h4>Hits</h4>
 					<blockquote>
-						<p ng-repeat="x in adminController.allUrls" style="color: white">{{x.theHitters[x].label}}</p>
+						<p ng-repeat="x in adminController.allUrls" style="color: white">{{x.urlHits.hitCount}}</p>
 					</blockquote>
 				</div>
 			</section>

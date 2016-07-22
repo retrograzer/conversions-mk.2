@@ -1,7 +1,78 @@
 <div class="container-fluid">
 	<div class="col-md-10 col-md-offset-1">
 		<div class="jumbotron">
-			<h1 id="inIt">Pleb</h1>
+			<h1 id="inIt">{{userController.jumbo}}</h1>
 		</div>
+		<p align="right">Check this project out on github! 
+		  <a href="https://github.com/retrograzer/conversions-mk.2" class="btn btn-social-icon btn-github" >	
+  		</a>
+		</p>
+		<section class="tab">
+			<ul class="nav nav-pills">
+				<li ng-class="{active: userController.isSet(1)}">
+					<a ng-href ng-click="userController.setTab(1)">Bio</a></li>
+				<li ng-class="{active: userController.isSet(2)}">
+					<a ng-href ng-click="userController.setTab(2)">Resume</a></li>
+			</ul>
+			<div ng-show="userController.isSet(1)">
+				<!-- <h2 id="subtitle"><u>TECHNICAL RESUME</u></h2>s -->
+				<h3 id="subtitle">Noah Schultz</h3>
+				<h4 id="subtitle">Location: Kingsland, GA</h2>
+				<h4 id="subtitle">Relocation: Available, Nationwide</h2>
+				<p>Noah Schultz, born in Valdosta, Georgia and has never left the peach state since then. 
+				Completed high school thirty-second in rank with graduating honors and the technology award. 
+				He became heavily interested in programming as early as sixth grade, experimenting and creating 
+				small programs for his family and friends ever since. He has worked as A/V tech at several small 
+				institutions as volunteer work, and has garnered statewide acclaim due to a program built for a 
+				Future Business Leaders of America competition in 2016. He prefers to work on the front-end of 
+				Java applications, being especially intrigued in how Java uses frameworks like Spring to create efficient, 
+				reusable code that is intuitive for both the programmer and the user. Outside of the programming spectrum,
+				 Noah enjoys gaming both in the consumer and development spectrum, exploring new technologies, 
+				 playing musical instruments, and constantly enjoying the old 80s hit rock songs.</p>
+			</div>
+			<div ng-show="userController.isSet(2)">
+				<!-- <h2 id="subtitle"><u>PROFESSIONAL BIO</u></h2> -->
+				<br>
+				<h3 id="subtitle">PROFESSIONAL SUMMARY</h4>
+				<p>Noah Schultz is a skilled associate Java Developer with a strong work ethic, aptitude for understanding 
+				and assimilating new technologies, and demonstrable performance. He is a graduate of the FastTrackD Java 
+				Developer program and is skilled in developing, deploying, troubleshooting and maintaining Java applications. 
+				He has achieved a productive level of knowledge in multiple areas of the Java development space including core 
+				Java, Java frameworks (Spring, MVC, JSF, Hibernate, etc.), Java IDEs and related technologies such as XML, SQL, and HTML. 
+				Noah has extensive experience identifying key information streams, and streamlining data collection and distribution to 
+				deliver impactful metrics throughout the organization.</p>
+				<br>
+				<h3 id="subtitle">TECHNICAL SKILLS</h4>
+				<p><strong><i>Programming:</i></strong>	Java, J2EE, AOP, jQuery, Prime Faces, JSP, HTML, JavaScript, XML, XSD, CSS, JMS, Spring MVC, SOA
+				<p><strong><i>Development Tools:</i></strong>	Eclipse, Maven, GitHub, Spring MVC/IOC, Hibernate, AspectJ</p>
+				<p><strong><i>Database:</i></strong>		Microsoft SQL Server, MySQL, SQL</p>
+				<p><strong><i>Office Automation:</i></strong>	Microsoft Office, Google Apps, Software Implementation<p>
+				<br>
+				<h3 id="subtitle">PROFESSIONAL EXPERIENCE</h4>
+				<p id="subtitle">Cook Systems International: 5/16-present</p>
+				<p><i>File-Sharing Application</i></p>
+				<ul>
+					<li>Created a multi-user file-sharing application that makes use of Java networking sockets to access remote machines on an IP network. </li>
+					<li>Developed the multi-threaded back end server and the client requester application. </li>
+					<li>Designed and implemented the graphical interface using the Swing API</li>
+					<li>Utilized JAXB framework to access XML configuration files for client and server apps</li>
+				</ul>
+				<p><i>Environment: Eclipse-based Spring Tool Suite</i></p>
+				<p><i>Online Website Tracking Application </i></p>
+				<ul>
+					<li>Developed a simple yet efficient website that tracked and reported the traffic found on its web pages using MySQL databases and JavaScript endpoints. </li>
+					<li>Built the aforementioned site using HTML, AngularJS, CSS, and Bootstrap skills on the front-end, creating a readable, flexible, and intuitive interface for users. </li>
+				</ul>
+				<p><i>Environment: Eclipse-based Spring Tool Suite</i></p>
+				<br>
+				<h3 id="subtitle">EDUCATION</h4>
+				<p><strong>Cook Systems FastTrackD Java Program -> 05/16</strong></p>
+				<p><i>Concentrated Java Frameworks and developer tools training</i></p>
+				<br>  
+				<p><strong>Camden County High School in Kingsland, GA -> 05/16</strong></p>
+				<p><i>High School Diploma</i></p>
+				<br>
+			</div>
+		</section>
 	</div>
 </div>
