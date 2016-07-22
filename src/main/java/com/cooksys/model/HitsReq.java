@@ -19,6 +19,11 @@ public class HitsReq {
 	public void setTimestamp(Date timestamp) {
 		this.timestamp = timestamp;
 	}
+	
+	public void setHitRegion(long hitRegion) {
+		this.hitRegion = hitRegion;
+	}
+	
 	public HitsReq(long l, Date timestamp) {
 		super();
 		this.hitRegion = l;

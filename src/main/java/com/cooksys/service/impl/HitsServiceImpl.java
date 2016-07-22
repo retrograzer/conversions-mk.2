@@ -18,7 +18,7 @@ public class HitsServiceImpl implements HitsService {
 
 	@Override
 	public void addHit(HitsReq hitsReq) {
-		Hits hit = new Hits(hitsReq.getHitRegion(), hitsReq.getTimestamp());
+		Hits hit = new Hits(hitsReq.getHitRegion(), hitsReq.getTimestamp(), 34);
 		hitRepo.save(hit);
 	}
 

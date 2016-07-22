@@ -25,14 +25,18 @@ public class Hits {
 	@Column(name="timestamp")
 	private Date timestamp;
 	
+	@Column(name="hit_count")
+	private long hitCount;
+	
 	public Hits() {
 		super();
 	}
 
-	public Hits(long hitRegion, Date date) {
+	public Hits(long hitRegion, Date date, long hitCount) {
 		super();
 		this.hitRegion = hitRegion;
 		this.timestamp = date;
+		this.hitCount = hitCount;
 	}
 
 	public long getId() {
@@ -57,6 +61,18 @@ public class Hits {
 
 	public void setTimestamp(Date timestamp) {
 		this.timestamp = timestamp;
+	}
+
+	public long getHitCount() {
+		return hitCount;
+	}
+
+	public void setHitCount(long hitCount) {
+		this.hitCount = hitCount;
+	}
+
+	public void setHitRegion(long hitRegion) {
+		this.hitRegion = hitRegion;
 	}
 	
 	
